@@ -1,0 +1,44 @@
+
+Vetor (Array)                                 _
+    - Mesmo tipo de dado                       |
+    - Tamanho definido                         |
+                                               |    Podemos armazenar caracteres - no Puytho
+ndArray                                        |    não é possivel
+    Tipo de dado no Python para ambas          |    'a' 'm' 'o' 'r' 'a'
+    as estruturas como vetor e Array           | 
+                                              _|
+
+
+Listas : São variaveis que permitem armazenar varios valores em estruturas acessadas por indices e
+que podem conter diversos tipos [string, int, float, char]. Seu tamanho é definido de acordo com a
+quantidade de itens dentro da estrutura.
+
+    Declarando uma lista:
+        L = [] - lista vazia
+        L = [15, 8, 9] - lista preenchida
+
+    Zeros
+        L = [0] * 10
+
+    Adicionar valor
+        L.append(23)
+            objeto.metodo(valor)
+        
+        Z += [2]
+        objeto += vetor acrescentado
+
+    Remover valor lista
+        del L[1]
+            remove objeto[posição]
+        del L[1:99]
+            remove objeto[sequencia]
+
+        remove
+
+        pop
+
+
+- tipos diferentes
+- tamanho infinito
+- Flexibilidade
+- 
