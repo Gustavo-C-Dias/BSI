@@ -6,6 +6,7 @@ X = list()
 Y = list()
 Semelhante = list()
 Diferenca = list()
+dif = list()
 cont = 0
 
 for x in range (10):
@@ -29,4 +30,21 @@ for index_x in range(len(X)):
         Diferenca.append(X[index_x])
     cont = 0
 
+# Professora
+
+for x in range (0,10):
+    for y in range(0,10):
+        if X[x] != Y[y]:
+            cont += 1
+    if(cont == 10):
+        dif.append(X[x])
+    cont = 0
+
+# Rafa
+
+for i in X :
+    if(i not in Y) and (i not in dif):
+        dif.append(i)
+
 print(f"\n{Diferenca}")
+print(dif)

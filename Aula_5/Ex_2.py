@@ -1,10 +1,4 @@
-# Ler uma estrutura (lista, tupla ou conjunto), R de 5 elementos, inteiros,
-# contendo o resultado da LOTO. A seguir ler outra estrutura (lista, tupla 
-# ou conjunto), A de 10 elementos inteiros contendo uma aposta. A seguir 
-# imprima quantos pontos fez o apostador.
-
-resultado = ("1","2","3","4","5")
-#resultado = [1,2,3,4,5]
+resultado = (1,2,3,4,5)
 aposta = list()
 i = 0
 
@@ -17,3 +11,20 @@ for tuple_element in resultado :
             i += 1
 
 print(i)
+
+
+# Professora
+
+R = set()
+S = set()
+
+for i in range(5):
+    R.add(int(input(f"Digite o {i} numero da 1º lista : ")))
+
+print("\n------\n")
+
+for i in range(10):
+    S.add(int(input(f"Digite o {i} numero da 2º lista : ")))
+
+X = R & S
+print(len(X))

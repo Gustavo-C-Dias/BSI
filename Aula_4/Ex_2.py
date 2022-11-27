@@ -5,15 +5,12 @@ Lista = list()
 cont = 0
 
 for x in range (9):
-    aux = int(input(f"Informe o {x} valor : "))
-    Lista.append(aux)
-
-print(Lista)
+    Lista.append(int(input(f"Informe o {x} valor : ")))
 
 for index, valor in enumerate(Lista):
     for x in range(1,valor):
         if valor % x == 0:
             cont += 1
     if (cont == 1):
-        print(f"O numero {valor} ")
-    cont = 0
+        print(f"O numero {valor} é primo")
+    cont = 0 
