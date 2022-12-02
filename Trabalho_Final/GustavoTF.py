@@ -2,7 +2,6 @@
 # Aluno: Gustavo Chimenes Dias
 # Disciplina: Algoritmos e Programação de Computadores II - Lidiane
 
-# Nova equipe
 def cadastrar_equipe():
     print("-" * 50 + "\n - Cadastrar Equipes")
     equipes = []
@@ -13,7 +12,7 @@ def cadastrar_equipe():
         match controle:
             case 1:
                 pais = input("Digite o nome do país:").upper()
-                if not(verificar_cadastro(pais)): 
+                if not(verificar_cadastro_arquivo(pais) or verificar_cadastro_lista(pais,equipes)): 
                     aux = []
                     aux.append(pais)
                     aux.append(input(f"Digite a sigla do {pais}: ").upper())
@@ -27,7 +26,7 @@ def cadastrar_equipe():
             case _:
                 print("\n ❌ Digite um valor válido!")
             
-# Novo jogo        
+     
 def cadastrar_jogo():
     print("-" * 50 + "\n - Cadastrar Jogos\n")  
     jogos = []
@@ -41,10 +40,10 @@ def cadastrar_jogo():
         match controle:
             case 1:
                 equipe_A.append(input("Digite o nome da primeira equipe: ").upper())
-                if not(verificar_cadastro(equipe_A[0])):
+                if not(verificar_cadastro_arquivo(equipe_A[0])):
                     cadastrar_equipe()
                 equipe_B.append(input("Digite o nome da segunda equipe: ").upper())
-                if not(verificar_cadastro(equipe_B[0])):
+                if not(verificar_cadastro_arquivo(equipe_B[0])):
                     cadastrar_equipe()
 
                 print(f"\nInformações sobre o {equipe_A[0]} no jogo: ")
@@ -66,7 +65,7 @@ def cadastrar_jogo():
             case _:
                 print("\n ❌ Digite um valor válido!")
 
-# Total jogos armazenados
+
 def total_jogos():
     print("-" * 50 + "\n - Total de jogos\n")
     try:
@@ -77,7 +76,7 @@ def total_jogos():
     except:
         print("🚨 Cadastre um jogo primeiro 🚨")
 
-# Total equipes armazenados
+
 def total_equipes():
     print("-" * 50 + "\n - Total de equipes\n")
     try:
@@ -88,7 +87,7 @@ def total_equipes():
     except:
         print("🚨 Cadastre uma equipe primeiro 🚨")
     
-# Lista de jogos
+
 def listar_jogos():
     print("-" * 50 + "\n - Listagem dos jogos\n")
     try:
@@ -103,7 +102,7 @@ def listar_jogos():
     except:
         print("🚨 Cadastre um jogo primeiro 🚨")
 
-# Pesquisar
+
 def pesquisar ():
     print("-" * 50 + "\n - Pesquisa\n")
     try:
@@ -142,19 +141,18 @@ def pesquisar ():
             print(f"{gols} gols totais")
             print(f"{faltas} faltas totais")
         else:
-            print(f"O pais {equipe} não tem jogos")
-                          
+            print(f"O pais {equipe} não tem jogos")                 
     except:
         print("🚨 Cadastre uma equipe primeiro 🚨")
     
-# Aplicações gerais   
+ 
 def tratar_conteudo(conteudo):
     aux = []
     for elemento in conteudo:
         aux.append(elemento.split(";"))
     return aux
 
-def verificar_cadastro(pais):
+def verificar_cadastro_arquivo(pais):
     try:
         arquivo_equipe = open ("equipes.txt","r+")
         conteudo = tratar_conteudo(arquivo_equipe.readlines())
@@ -164,6 +162,12 @@ def verificar_cadastro(pais):
     arquivo_equipe.close
     for linha in range(len(conteudo)):
         if pais.upper() == conteudo[linha][0]:
+            return True
+    return False
+
+def verificar_cadastro_lista(pais, equipe):
+    for linha in range(len(equipe)):
+        if pais.upper() == equipe[linha][0]:
             return True
     return False
 
