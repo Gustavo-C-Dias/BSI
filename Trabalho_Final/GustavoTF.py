@@ -25,27 +25,32 @@ def cadastrar_equipe():
                 break
             case _:
                 print("\n ❌ Digite um valor válido!")
-            
-     
+               
 def cadastrar_jogo():
     print("-" * 50 + "\n - Cadastrar Jogos\n")  
     jogos = []
     
     while True:
         aux = []
-        equipe_B = []
-        equipe_A = []
         controle = int(input("\n   📝 1 - Novo jogo\n   🔑 2 - Salvar\n\n Digite um valor: "))
 
         match controle:
             case 1:
+                equipe_A = []
                 equipe_A.append(input("Digite o nome da primeira equipe: ").upper())
                 if not(verificar_cadastro_arquivo(equipe_A[0])):
                     cadastrar_equipe()
-                equipe_B.append(input("Digite o nome da segunda equipe: ").upper())
-                if not(verificar_cadastro_arquivo(equipe_B[0])):
-                    cadastrar_equipe()
-
+                while True:
+                    equipe_B = []
+                    equipe_B.append(input("Digite o nome da segunda equipe: ").upper())
+                    if not(verificar_cadastro_arquivo(equipe_B[0])):
+                        cadastrar_equipe()
+                        break
+                    if (equipe_B[0] != equipe_A[0]):
+                        break
+                    else:
+                        print(" ❌ Não podemos ter jogo contra a mesma equipe")
+                
                 print(f"\nInformações sobre o {equipe_A[0]} no jogo: ")
                 equipe_A.append(input("Quantidade de gols : "))
                 equipe_A.append(input("Quantidade de faltas: "))
@@ -65,7 +70,6 @@ def cadastrar_jogo():
             case _:
                 print("\n ❌ Digite um valor válido!")
 
-
 def total_jogos():
     print("-" * 50 + "\n - Total de jogos\n")
     try:
@@ -75,7 +79,6 @@ def total_jogos():
         print(f"{len(conteudo)} é a quantidade total de jogos cadastrado")
     except:
         print("🚨 Cadastre um jogo primeiro 🚨")
-
 
 def total_equipes():
     print("-" * 50 + "\n - Total de equipes\n")
@@ -87,7 +90,6 @@ def total_equipes():
     except:
         print("🚨 Cadastre uma equipe primeiro 🚨")
     
-
 def listar_jogos():
     print("-" * 50 + "\n - Listagem dos jogos\n")
     try:
@@ -101,7 +103,6 @@ def listar_jogos():
             print("")
     except:
         print("🚨 Cadastre um jogo primeiro 🚨")
-
 
 def pesquisar ():
     print("-" * 50 + "\n - Pesquisa\n")
@@ -145,7 +146,6 @@ def pesquisar ():
     except:
         print("🚨 Cadastre uma equipe primeiro 🚨")
     
- 
 def tratar_conteudo(conteudo):
     aux = []
     for elemento in conteudo:
